@@ -1,18 +1,20 @@
 //detecting keyoard actions
 void  keyPressed()
 {
-  if (keyCode == UP) up =  true;
-  if (keyCode == DOWN) down = true; 
-  if (keyCode == LEFT) left = true;
-  if (keyCode == RIGHT) right = true;
+  if (key == 'w') up =  true;
+  if (key == 's') down = true; 
+  if (key == 'a') left = true;
+  if (key == 'd') right = true;
+  if (keyCode == ' ')  space = true;
 }
 
 void keyReleased()
 {
-  if (keyCode == UP) up = false;
-  if (keyCode == DOWN) down = false;
-  if (keyCode == LEFT) left = false;
-  if (keyCode == RIGHT) right = false;
+  if (key == 'w') up = false;
+  if (key == 's') down = false;
+  if (key == 'a') left = false;
+  if (key == 'd') right = false;
+  if (key == ' ')  space = false;
 }
 
 

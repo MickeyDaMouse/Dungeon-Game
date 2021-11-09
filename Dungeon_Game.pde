@@ -27,12 +27,18 @@ AnimatedGIF introGif;//intro gif
 //images
 PImage map;
 color northRoom, eastRoom, southRoom, westRoom;
+int mapx,mapy;
 
 //hero
 Hero me;
 
 //game objects
 ArrayList<GameObject> myObjects;
+
+//darkness
+ArrayList<Darkness> darkness = new ArrayList<Darkness>(1000);
+float darkSize =  10;
+int darkx = 0, darky = 0;
 
 //buttons
 Button introButton;
@@ -53,6 +59,9 @@ void setup()
   
   me = new Hero();
   myObjects.add(me);
+  
+  //test
+  //darkness.add(new Darkness(me.location.x,me.location.y,100));
 }
 
 

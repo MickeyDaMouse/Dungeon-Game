@@ -3,6 +3,7 @@ class Hero extends GameObject
 
   float speed;
   int roomX, roomY;
+  Weapon myWeapon;
 
   Hero()
   {
@@ -11,13 +12,13 @@ class Hero extends GameObject
     speed = 5;
     roomX = 1;
     roomY = 1;
+    
+    myWeapon = new Weapon(30,5,100);
   }
 
 
   void show()
   {
-
-
     fill(magenta);
     noStroke();
     circle(location.x, location.y, size*2);
@@ -26,6 +27,9 @@ class Hero extends GameObject
   void act()
   {
     super.act();
+    
+    myWeapon.update();
+    if(space) myWeapon.shoot();
 
     if (up)
     {

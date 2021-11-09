@@ -2,8 +2,8 @@ void game()
 {
   drawRoom();
   drawGameObjects();
-  
-  
+  drawDarkness();
+  drawMap();
 }
 
 
@@ -30,7 +30,7 @@ void drawRoom()
   if(westRoom != #FFFFFF)   ellipse(100,height/2,100,100);
 
   //draw room
-  fill(210);
+  fill(255);
   stroke(0);
   strokeWeight(5);
   rectMode(CENTER);
@@ -58,8 +58,46 @@ void drawGameObjects()
   }
 }
 
+void drawDarkness()
+{
+  while(darkx<width)
+  {
+    while(darky<height)
+    {
+      darkness.add(new Darkness(darkx,darky,darkSize));
+      //print (darkx + ",   " + darky + ".");
+      
+      darky += darkSize;
+    }
+    darky = 0;
+    darkx += darkSize;
+  }
+  
+  int i=0;
+  while(i<darkness.size())
+  {
+    darkness.get(i).show();
+    i++;
+  }
+}
+
 void drawMap()
 {
+  while(mapy<map.height)
+  {
+    color c = map.get(mapx,mapy);
+    if(mapx == me.roomX && mapy == me.roomY)  fill(magenta);
+    else  fill(c);
+    square(30+mapx*10,30+mapy*10,10);
+    mapx++;
+    if(mapx >= map.width)
+    {
+      mapx=0;
+      mapy++;
+    }
+  }
+  mapx = 0;
+  mapy = 0;
   
 }
 
