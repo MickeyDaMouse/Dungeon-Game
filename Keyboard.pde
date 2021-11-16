@@ -5,7 +5,7 @@ void  keyPressed()
   if (key == 's') down = true; 
   if (key == 'a') left = true;
   if (key == 'd') right = true;
-  if (keyCode == ' ')  space = true;
+  if (key == ' ')  space = true;
 }
 
 void keyReleased()

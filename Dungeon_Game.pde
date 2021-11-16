@@ -59,6 +59,7 @@ void setup()
   
   me = new Hero();
   myObjects.add(me);
+  myObjects.add(new Enemy());
   
   //test
   //darkness.add(new Darkness(me.location.x,me.location.y,100));

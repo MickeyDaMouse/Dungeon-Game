@@ -2,7 +2,6 @@ class Hero extends GameObject
 {
 
   float speed;
-  int roomX, roomY;
   Weapon myWeapon;
 
   Hero()
@@ -13,7 +12,7 @@ class Hero extends GameObject
     roomX = 1;
     roomY = 1;
     
-    myWeapon = new Weapon(30,5,100);
+    myWeapon = new SniperRifle();
   }
 
 

@@ -5,6 +5,7 @@ class Weapon
   int threshold;
   int bulletSpeed;
   int flyDistance;
+  int damage;
   
   Weapon()
   {
@@ -14,12 +15,13 @@ class Weapon
     flyDistance = 500;
   }
   
-  Weapon(int thr, int bs, int fd)
+  Weapon(int thr, int bs, int fd, int d)
   {
     shotTimer =  0;
     threshold = thr;
     bulletSpeed = bs;
     flyDistance = fd;
+    damage = d;
   }
   
   void update()
@@ -34,7 +36,7 @@ class Weapon
     {
       PVector aimVector = new PVector(mouseX - me.location.x, mouseY - me.location.y);
       aimVector.setMag(bulletSpeed);
-      myObjects.add(new Bullet(aimVector,red,10, flyDistance));
+      myObjects.add(new Bullet(aimVector,red,5, flyDistance, damage));
       shotTimer = 0;
     }
     

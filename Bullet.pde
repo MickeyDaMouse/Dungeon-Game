@@ -4,7 +4,7 @@ class Bullet extends GameObject
   PVector nudge;
   color bc;
   
-  Bullet(PVector aim, color c, int s, int t)
+  Bullet(PVector aim, color c, int s, int t, int d)
   {
     timer = t;
     lives = 1;
@@ -12,6 +12,10 @@ class Bullet extends GameObject
     location = me.location.copy();
     bc = c;
     size = s;
+    damage = d;
+    
+    roomX = me.roomX;
+    roomY = me.roomY;
     
   }
   
@@ -19,7 +23,7 @@ class Bullet extends GameObject
   {
     noStroke();
     fill(bc);
-    circle(location.x,location.y,size);
+    circle(location.x,location.y,size*2);
     
   }
   

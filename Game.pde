@@ -45,16 +45,18 @@ void drawGameObjects()
   while (i<myObjects.size())
   {
     GameObject myObj = myObjects.get(i);
-    myObj.show();
-    myObj.act();
-
-
+    if(myObj.roomX == me.roomX && myObj.roomY == me.roomY)
+    {
+      myObj.show();
+      myObj.act();
+    }
     if (myObj.lives <= 0)
     {
       myObjects.remove(i);
     } else {
       i++;
     }
+    
   }
 }
 

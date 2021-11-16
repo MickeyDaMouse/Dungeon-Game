@@ -2,10 +2,13 @@ class GameObject
 {
   
   //instance variables
+  int roomX, roomY;
   int lives;
   PVector location;
   PVector velocity;
   int size;
+  
+  int damage;
   
   
   //constructor
