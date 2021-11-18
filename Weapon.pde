@@ -34,10 +34,30 @@ class Weapon
   {
     if(shotTimer >= threshold)
     {
+      if(myWeapon instanceof ShotGun)
+      {
+        PVector aimVector = new PVector(mouseX - me.location.x, mouseY - me.location.y);
+        aimVector.setMag(bulletSpeed);
+        
+        int i=0;
+        while(i<10)
+        {
+          aimVector = new PVector(mouseX - me.location.x, mouseY - me.location.y);
+          aimVector.rotate(random(-0.3,0.3));
+          aimVector.setMag(bulletSpeed);
+          myObjects.add(new Bullet(aimVector,red,5, flyDistance, damage));
+          i++;
+        }
+        
+        shotTimer = 0;
+      }
+      else
+      {
       PVector aimVector = new PVector(mouseX - me.location.x, mouseY - me.location.y);
       aimVector.setMag(bulletSpeed);
       myObjects.add(new Bullet(aimVector,red,5, flyDistance, damage));
       shotTimer = 0;
+      }
     }
     
   }

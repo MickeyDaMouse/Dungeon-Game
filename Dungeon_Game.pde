@@ -43,6 +43,9 @@ int darkx = 0, darky = 0;
 //buttons
 Button introButton;
 
+//weapon
+Weapon myWeapon;
+
 void setup()
 {
   size(900,900);
@@ -60,6 +63,8 @@ void setup()
   me = new Hero();
   myObjects.add(me);
   myObjects.add(new Enemy());
+  myObjects.add(new Follower(1,2));
+  myObjects.add(new Follower(2,1));
   
   //test
   //darkness.add(new Darkness(me.location.x,me.location.y,100));

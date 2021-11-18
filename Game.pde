@@ -4,6 +4,10 @@ void game()
   drawGameObjects();
   drawDarkness();
   drawMap();
+  
+  textSize(30);
+  fill(red);
+  text("fps: "+int(frameRate),width/2,10);
 }
 
 

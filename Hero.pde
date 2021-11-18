@@ -2,7 +2,7 @@ class Hero extends GameObject
 {
 
   float speed;
-  Weapon myWeapon;
+
 
   Hero()
   {
@@ -11,6 +11,8 @@ class Hero extends GameObject
     speed = 5;
     roomX = 1;
     roomY = 1;
+    
+    lives = 100;
     
     myWeapon = new SniperRifle();
   }
@@ -21,6 +23,10 @@ class Hero extends GameObject
     fill(magenta);
     noStroke();
     circle(location.x, location.y, size*2);
+    
+    fill(black);
+    textSize(10);
+    text(lives,location.x,location.y);
   }
 
   void act()

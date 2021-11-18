@@ -20,6 +20,6 @@ class ShotGun extends Weapon
 {
   ShotGun()
   {
-    super(50,3,50,10);
+    super(80,3,50,5);
   }
 }
