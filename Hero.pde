@@ -14,7 +14,7 @@ class Hero extends GameObject
     
     lives = 100;
     
-    myWeapon = new SniperRifle();
+    myWeapon = new AutoRifle();
   }
 
 

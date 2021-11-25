@@ -12,7 +12,7 @@ class Enemy  extends GameObject
   
   Enemy(int hp, int s, int x, int y)
   {
-    location = new PVector(width/2+100,height/2+100);
+    location = new PVector(random(300,width-300),random(300,height-300));
     velocity = new PVector(0,0);
     size = s;
     lives = hp;
@@ -42,8 +42,7 @@ class Enemy  extends GameObject
       GameObject obj = myObjects.get(i);
       if(obj instanceof Bullet)
       {
-        float d = dist(obj.location.x, obj.location.y, location.x, location.y);
-        if(d <= size + obj.size)
+        if(isCollidingWith(obj))
         {
           lives = lives - obj.damage;
           obj.lives = 0;

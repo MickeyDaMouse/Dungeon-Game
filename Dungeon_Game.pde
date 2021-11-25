@@ -9,6 +9,12 @@ final int PAUSE = 2;
 final int GAMEOVER = 3;
 int mode;
 
+//dropped items
+final int AMMO = 0;
+final int MONEY = 1;
+final int GUN = 2;
+final int HEALING = 3;
+
 //colors
 color red = #FF0000;
 color yellow = #FFFF00;
@@ -46,6 +52,10 @@ Button introButton;
 //weapon
 Weapon myWeapon;
 
+//loading rooms
+int rx;
+int ry;
+
 void setup()
 {
   size(900,900);
@@ -62,9 +72,53 @@ void setup()
   
   me = new Hero();
   myObjects.add(me);
-  myObjects.add(new Enemy());
-  myObjects.add(new Follower(1,2));
-  myObjects.add(new Follower(2,1));
+  //myObjects.add(new Enemy());
+  //myObjects.add(new Follower(1,2));
+  //myObjects.add(new Follower(2,1));
+  
+  //loading  enemies
+  rx = 0;
+  ry = 0;
+  while(ry<map.height)
+  {
+    color roomColor = map.get(rx,ry);
+    if(roomColor == red)
+    {
+      //basic enemy
+      myObjects.add(new Follower(rx,ry));
+      
+    }
+    if(roomColor == yellow)
+    {
+      //advanced enemy
+      
+      
+    }
+    if(roomColor == green)
+    {
+      //weapons + potions
+      myObjects.add(new DroppedItem(width/2,height/2,rx,ry));
+    }
+    if(roomColor == blue)
+    {
+      //mini bosses
+      
+    }
+    if(roomColor == black)
+    {
+      //bosses
+      
+    }
+    
+    rx++;
+    if(rx == map.width)
+    {
+      rx = 0;
+      ry++;
+      
+    }
+    
+  }
   
   //test
   //darkness.add(new Darkness(me.location.x,me.location.y,100));

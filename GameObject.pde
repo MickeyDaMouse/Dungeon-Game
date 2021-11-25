@@ -30,4 +30,22 @@ class GameObject
     
   }
   
+  boolean isCollidingWith (GameObject myObj)
+  {
+    float d = dist(myObj.location.x, myObj.location.y, location.x, location.y);
+    if(inRoomWith(myObj) && d < size + myObj.size)
+      return true;
+    else
+      return false;
+    
+  }
+  
+  boolean inRoomWith(GameObject myObj)
+  {
+    if(roomX == myObj.roomX && roomY == myObj.roomY)
+      return true;
+    else
+      return false;
+    
+  }
 }
