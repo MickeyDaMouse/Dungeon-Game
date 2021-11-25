@@ -2,6 +2,7 @@ class Hero extends GameObject
 {
 
   float speed;
+  AnimatedGIF currentAction;
 
 
   Hero()
@@ -11,18 +12,25 @@ class Hero extends GameObject
     speed = 5;
     roomX = 1;
     roomY = 1;
+    location = new PVector(width/2,height/2);
     
     lives = 100;
     
     myWeapon = new AutoRifle();
+    
+    currentAction = manDOWN;
   }
 
 
   void show()
   {
+    /*
     fill(magenta);
     noStroke();
     circle(location.x, location.y, size*2);
+    */
+    
+    currentAction.show(location.x,location.y,size/0.6,size*4);
     
     fill(black);
     textSize(10);
@@ -59,6 +67,19 @@ class Hero extends GameObject
     if (velocity.mag() > speed)  velocity.setMag(speed);    
     if (!up && !down) velocity.y = velocity.y*0.8;
     if (!left && !right) velocity.x = velocity.x*0.8;
+    
+    //check action gif
+    if(abs(velocity.y) > abs(velocity.x))
+    {
+      if(velocity.y>0)  currentAction = manDOWN;
+      else  currentAction = manUP;
+    }
+    else
+    {
+      if(velocity.x > 0)  currentAction = manRIGHT;
+      else  currentAction = manLEFT;
+      
+    }
 
     //check exits
     //north/up
@@ -95,6 +116,16 @@ class Hero extends GameObject
       {
         lives -= myObj.damage;
         myObj.lives = 0;
+      }
+      if(myObj instanceof DroppedItem && isCollidingWith(myObj))
+      {
+        DroppedItem item = (DroppedItem) myObj;
+        if(item.type == GUN)
+        {
+          myWeapon = item.w;
+          item.lives = 0;
+        }
+        
       }
       
       i++;

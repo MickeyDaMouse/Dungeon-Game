@@ -6,7 +6,10 @@ class DroppedItem extends GameObject
   DroppedItem(float x, float  y, int rx, int ry)
   {
     type = GUN;
-    w = new ShotGun();
+    if(rx == 1 && ry == 1)
+      w = new AutoRifle();
+    else
+      w = new SniperRifle();
     lives = 1;
     location = new PVector(x,y);
     velocity = new PVector(0,0);

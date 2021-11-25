@@ -29,6 +29,10 @@ boolean up, down, left, right, space;
 
 //gifs
 AnimatedGIF introGif;//intro gif
+AnimatedGIF manUP;
+AnimatedGIF manDOWN;
+AnimatedGIF manLEFT;
+AnimatedGIF manRIGHT;
 
 //images
 PImage map;
@@ -62,7 +66,12 @@ void setup()
   mode = INTRO;
   rectMode(CENTER);
   
+  //loading  gifs
   introGif = new AnimatedGIF(56,"frame_","_delay-0.06s.gif");
+  manUP = new AnimatedGIF(4,10,"up_",".png");
+  manDOWN = new AnimatedGIF(4,10,"down_",".png");
+  manLEFT = new AnimatedGIF(4,10,"left_",".png");
+  manRIGHT = new AnimatedGIF(4,10,"right_",".png");
   
   introButton = new Button(magenta,white,width/2,700,150,100,"Start");
   
