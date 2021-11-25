@@ -53,10 +53,10 @@ class Weapon
       }
       else
       {
-      PVector aimVector = new PVector(mouseX - me.location.x, mouseY - me.location.y);
-      aimVector.setMag(bulletSpeed);
-      myObjects.add(new Bullet(aimVector,red,5, flyDistance, damage));
-      shotTimer = 0;
+        PVector aimVector = new PVector(mouseX - me.location.x, mouseY - me.location.y);
+        aimVector.setMag(bulletSpeed);
+        myObjects.add(new Bullet(aimVector,red,5, flyDistance, damage));
+        shotTimer = 0;
       }
     }
     

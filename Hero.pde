@@ -85,5 +85,19 @@ class Hero extends GameObject
       roomX--;
       location = new PVector(width-(110+size), height/2);
     }
+    
+    //checking collisions
+    int i=0;
+    while(i<myObjects.size())
+    {
+      GameObject myObj = myObjects.get(i);
+      if(myObj instanceof EnemyBullet && isCollidingWith(myObj))
+      {
+        lives -= myObj.damage;
+        myObj.lives = 0;
+      }
+      
+      i++;
+    }
   }
 }

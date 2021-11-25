@@ -91,7 +91,10 @@ void setup()
     if(roomColor == yellow)
     {
       //advanced enemy
-      
+      myObjects.add(new Turret(rx,ry, 200,200));
+      myObjects.add(new Turret(rx,ry, 200,height-200));
+      myObjects.add(new Turret(rx,ry, width-200,200));
+      myObjects.add(new Turret(rx,ry, width-200,height-200));
       
     }
     if(roomColor == green)
