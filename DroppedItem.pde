@@ -24,6 +24,7 @@ class DroppedItem extends GameObject
     if(roomX == me.roomX && roomY == me.roomY)
     {
       fill(green);
+      strokeWeight(0);
       circle(location.x, location.y, size*2);
     }
     

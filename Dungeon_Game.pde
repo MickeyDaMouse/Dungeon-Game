@@ -94,7 +94,11 @@ void setup()
     if(roomColor == red)
     {
       //basic enemy
-      myObjects.add(new Follower(rx,ry));
+      for(int i=0; i<rx+ry; i++)
+      {
+        myObjects.add(new Follower(rx,ry));
+      }
+      
       
     }
     if(roomColor == yellow)

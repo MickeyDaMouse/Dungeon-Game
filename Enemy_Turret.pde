@@ -16,6 +16,7 @@ class Turret extends Enemy
     if( roomX == me.roomX && roomY == me.roomY)
     {
       fill(blue);
+      strokeWeight(0);
       circle(location.x,location.y,size*2);
       fill(black);
       textSize(10);

@@ -23,3 +23,12 @@ class ShotGun extends Weapon
     super(80,3,50,5);
   }
 }
+
+class Rocket extends Weapon
+{
+  Rocket()
+  {
+    
+  }
+  
+}

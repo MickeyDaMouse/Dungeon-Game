@@ -16,7 +16,7 @@ void drawRoom()
   //draw corner
   background(180);
   stroke(0);
-  //strokeWeight(5);
+  strokeWeight(5);
   line(0, 0, width, height);
   line(width, 0, 0, height);
   
@@ -66,9 +66,9 @@ void drawGameObjects()
 
 void drawDarkness()
 {
-  while(darkx<width)
+  while(darkx<=width+darkSize)
   {
-    while(darky<height)
+    while(darky<=height+darkSize)
     {
       darkness.add(new Darkness(darkx,darky,darkSize));
       //print (darkx + ",   " + darky + ".");

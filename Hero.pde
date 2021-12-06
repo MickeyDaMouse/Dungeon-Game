@@ -2,19 +2,21 @@ class Hero extends GameObject
 {
 
   float speed;
+  int maxLives;
   AnimatedGIF currentAction;
 
 
   Hero()
   {
     super();
-    size = 20;
+    size = 40;
     speed = 5;
     roomX = 1;
     roomY = 1;
     location = new PVector(width/2,height/2);
     
-    lives = 100;
+    lives = 150;
+    maxLives = 150;
     
     myWeapon = new AutoRifle();
     
@@ -24,17 +26,25 @@ class Hero extends GameObject
 
   void show()
   {
-    /*
-    fill(magenta);
+    
+    //fill(magenta);
+    //noStroke();
+    //circle(location.x, location.y, size*2);
+    
+    
+    currentAction.show(location.x,location.y,size,size*2);
+    
+    //fill(black);
+    //textSize(10);
+    //text(lives,location.x,location.y);
+    
     noStroke();
-    circle(location.x, location.y, size*2);
-    */
-    
-    currentAction.show(location.x,location.y,size/0.6,size*4);
-    
-    fill(black);
-    textSize(10);
-    text(lives,location.x,location.y);
+    fill(127,255,0);
+    rectMode(CORNER);
+    float w = map(lives,0,maxLives,0,50);
+    rect(location.x-25,location.y-(size+5),w,10);
+    fill(red);
+    rect(location.x-25+w,location.y-(size+5),50-w,10);
   }
 
   void act()
