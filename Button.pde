@@ -5,10 +5,12 @@ class Button
   String txt;
   color fill, text;
   float x, y, w, h;
+  int strokeWeight;
+  int size;
 
 
   //constructor
-  Button(color f, color tt, float xx, float yy, float ww, float hh, String t)
+  Button(color f, color tt, float xx, float yy, float ww, float hh, String t, int strokeW, int s)
   {
     txt = t;
     fill = f;
@@ -17,11 +19,13 @@ class Button
     y = yy;
     w =  ww;
     h =  hh;
+    strokeWeight = strokeW;
+    size = s;
   }
 
   void show()
   {
-    strokeWeight(10);
+    strokeWeight(strokeWeight);
     rectMode(CENTER);
     textAlign(CENTER,CENTER);
     if (mouseX>x-w/2&&mouseX<x+w/2&&mouseY>y-h/2&&mouseY<y+h/2)
@@ -33,9 +37,9 @@ class Button
     }
     fill(fill);
     rect(x, y, w, h);
-    textSize(40);
+    textSize(size);
     fill(text);
-    text(txt, x, y);
+    text(txt, x, y-size/5);
 
     if (mousePressed)
     {

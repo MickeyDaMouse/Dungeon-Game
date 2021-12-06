@@ -14,7 +14,7 @@ class Darkness
   void show()
   {
     float d = dist(x,y,me.location.x,me.location.y);
-    opacity = map(d,0,300,0,100);
+    opacity = map(d,0,200,0,100);
     fill(black, opacity);
     noStroke();
     square(x,y,size);

@@ -45,7 +45,7 @@ class Weapon
           aimVector = new PVector(mouseX - me.location.x, mouseY - me.location.y);
           aimVector.rotate(random(-0.3,0.3));
           aimVector.setMag(bulletSpeed);
-          myObjects.add(new Bullet(aimVector,red,5, flyDistance, damage));
+          myObjects.add(new Bullet(aimVector,red,5, flyDistance, int(damage*me.damageMultiplier)));
           i++;
         }
         
@@ -55,7 +55,7 @@ class Weapon
       {
         PVector aimVector = new PVector(mouseX - me.location.x, mouseY - me.location.y);
         aimVector.setMag(bulletSpeed);
-        myObjects.add(new Bullet(aimVector,red,5, flyDistance, damage));
+        myObjects.add(new Bullet(aimVector,red,5, flyDistance, int(damage*me.damageMultiplier)));
         shotTimer = 0;
       }
     }

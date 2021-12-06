@@ -3,6 +3,10 @@ class Hero extends GameObject
 
   float speed;
   int maxLives;
+  int xp;
+  float speedMultiplier;
+  float damageMultiplier;
+   
   AnimatedGIF currentAction;
 
 
@@ -16,7 +20,12 @@ class Hero extends GameObject
     location = new PVector(width/2,height/2);
     
     lives = 150;
+    
+    //character upgrades
+    xp = 100;
     maxLives = 150;
+    speedMultiplier = 1.0;
+    damageMultiplier = 1.0;
     
     myWeapon = new AutoRifle();
     
@@ -56,32 +65,32 @@ class Hero extends GameObject
 
     if (up)
     {
-      if (location.y>100+size)  velocity.y = -speed;
+      if (location.y>100+size)  velocity.y = -speed*speedMultiplier;
       else  velocity.y = 0;
     }
     if (down)
     {
-      if (location.y<800-size)  velocity.y = speed;
+      if (location.y<800-size)  velocity.y = speed*speedMultiplier;
       else velocity.y = 0;
     }
     if (left)
     {
-      if (location.x>100+size)  velocity.x = -speed;
+      if (location.x>100+size)  velocity.x = -speed*speedMultiplier;
       else velocity.x = 0;
     }
     if (right)
     {
-      if (location.x<800-size)  velocity.x = speed;
+      if (location.x<800-size)  velocity.x = speed*speedMultiplier;
       else  velocity.x = 0;
     }
-    if (velocity.mag() > speed)  velocity.setMag(speed);    
+    if (velocity.mag() > speed)  velocity.setMag(speed*speedMultiplier);    
     if (!up && !down) velocity.y = velocity.y*0.8;
     if (!left && !right) velocity.x = velocity.x*0.8;
     
     //check action gif
-    if(abs(velocity.y) > abs(velocity.x))
+    if(abs(velocity.y) >= abs(velocity.x))
     {
-      if(velocity.y>0)  currentAction = manDOWN;
+      if(velocity.y>=0)  currentAction = manDOWN;
       else  currentAction = manUP;
     }
     else

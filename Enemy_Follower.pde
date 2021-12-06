@@ -28,7 +28,7 @@ class Follower extends Enemy
     
     if(dist(location.x,location.y,me.location.x,me.location.y) < size + me.size)
     {
-      me.lives -= lives;
+      me.lives -= 15;
       lives = 0;
     }
   }

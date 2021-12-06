@@ -5,6 +5,8 @@ void game()
   drawDarkness();
   drawMap();
   
+  heroButton.show();
+  
   textSize(30);
   fill(red);
   text("fps: "+int(frameRate),width/2,10);
@@ -109,4 +111,8 @@ void drawMap()
 
 void gameClick()
 {
+  if(heroButton.clicked == true)
+  {
+    mode = PAUSE;
+  }
 }

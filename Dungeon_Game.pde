@@ -23,6 +23,7 @@ color blue  = #0000FF;
 color magenta = #FF00FF;
 color white = #FFFFFF;
 color black = #000000;
+color pink = #FFC0CB;
 
 //movements
 boolean up, down, left, right, space;
@@ -52,6 +53,11 @@ int darkx = 0, darky = 0;
 
 //buttons
 Button introButton;
+Button heroButton;
+Button pauseButton;
+Button hpButton;
+Button speedButton;
+Button damageButton;
 
 //weapon
 Weapon myWeapon;
@@ -73,7 +79,13 @@ void setup()
   manLEFT = new AnimatedGIF(4,10,"left_",".png");
   manRIGHT = new AnimatedGIF(4,10,"right_",".png");
   
-  introButton = new Button(magenta,white,width/2,700,150,100,"Start");
+  //buttons
+  introButton = new Button(magenta,white,width/2,700,150,100,"Start",10,60);
+  heroButton = new Button(magenta, green, width-200,50,75,25,"Hero",2,20);
+  pauseButton = new Button(white, black, width/2+260, height/2-260, 50,50,"x",2,50);
+  hpButton = new Button(green,yellow,width/2-250,height/2-150,40,40,"+",4,50);
+  speedButton = new Button(blue,yellow,width/2-250,height/2,40,40,"+",4,50);
+  damageButton = new Button(red,yellow,width/2-250,height/2+150,40,40,"+",4,50);
   
   map = loadImage("map.png");
   
