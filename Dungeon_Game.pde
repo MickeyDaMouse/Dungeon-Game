@@ -150,6 +150,7 @@ void setup()
   
   //test
   //darkness.add(new Darkness(me.location.x,me.location.y,100));
+  //myObjects.add(new Message(new PVector(width/2,height/2), "test"));
 }
 
 

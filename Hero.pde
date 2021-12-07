@@ -50,19 +50,33 @@ class Hero extends GameObject
     noStroke();
     fill(127,255,0);
     rectMode(CORNER);
+    
+    //health bar
     float w = map(lives,0,maxLives,0,50);
     rect(location.x-25,location.y-(size+5),w,10);
     fill(red);
     rect(location.x-25+w,location.y-(size+5),50-w,10);
+    
+    //health
+    textSize(12);
+    fill(red);
+    text(lives+"/"+maxLives,location.x,location.y-55);
   }
 
   void act()
   {
     super.act();
     
+    //set to max live
+    if(lives > maxLives)
+    {
+      lives = maxLives;
+    }
+    
     myWeapon.update();
     if(space) myWeapon.shoot();
 
+  //moving
     if (up)
     {
       if (location.y>100+size)  velocity.y = -speed*speedMultiplier;
@@ -83,7 +97,7 @@ class Hero extends GameObject
       if (location.x<800-size)  velocity.x = speed*speedMultiplier;
       else  velocity.x = 0;
     }
-    if (velocity.mag() > speed)  velocity.setMag(speed*speedMultiplier);    
+    if (velocity.mag() > speed*speedMultiplier)  velocity.setMag(speed*speedMultiplier);    
     if (!up && !down) velocity.y = velocity.y*0.8;
     if (!left && !right) velocity.x = velocity.x*0.8;
     

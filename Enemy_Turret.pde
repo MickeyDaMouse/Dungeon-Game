@@ -8,7 +8,8 @@ class Turret extends Enemy
   {
     super(100,30,x,y, locx, locy);
     shotTimer = 0;
-
+    
+    xp = 2;
   }
   
   void show()

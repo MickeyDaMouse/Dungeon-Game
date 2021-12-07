@@ -36,6 +36,7 @@ void pauseClick()
     {
       me.xp--;
       me.maxLives += 50;
+      me.lives += 50;
       
     }
   }

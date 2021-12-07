@@ -3,6 +3,7 @@ class Follower extends Enemy
   Follower(int x, int y)
   {
     super(100,30,x,y);
+    xp = 1;
   }
   
   void show()

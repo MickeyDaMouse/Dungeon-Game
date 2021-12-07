@@ -1,5 +1,8 @@
 class Enemy  extends GameObject
 {
+  
+  int xp;
+  
   Enemy(int hp, int s, int x, int y,int locx, int locy)
   {
     location = new PVector(locx, locy);
@@ -47,6 +50,11 @@ class Enemy  extends GameObject
         {
           lives = lives - obj.damage;
           obj.lives = 0;
+          if(lives <= 0)
+          {
+            myObjects.add(new Message(location, "+" + xp, roomX, roomY));
+            me.xp += xp;
+          }
         }
       }
       
