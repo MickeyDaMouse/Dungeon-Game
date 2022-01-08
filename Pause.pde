@@ -46,7 +46,8 @@ void pauseClick()
     {
       me.xp--;
       me.speedMultiplier += 0.1;
-      
+      me.speedMultiplier *= 10;
+      me.speedMultiplier = round(me.speedMultiplier)/10.0;
     }
   }
   if(damageButton.clicked == true)
@@ -55,7 +56,8 @@ void pauseClick()
     {
       me.xp--;
       me.damageMultiplier += 0.1;
-      
+      me.damageMultiplier *= 10;
+      me.damageMultiplier = round(me.damageMultiplier)/10.0;
     }
   }
   

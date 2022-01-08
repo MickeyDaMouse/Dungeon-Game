@@ -51,11 +51,25 @@ class Weapon
         
         shotTimer = 0;
       }
-      else
+      else if(myWeapon instanceof AutoRifle)
       {
         PVector aimVector = new PVector(mouseX - me.location.x, mouseY - me.location.y);
         aimVector.setMag(bulletSpeed);
         myObjects.add(new Bullet(aimVector,red,5, flyDistance, int(damage*me.damageMultiplier)));
+        shotTimer = 0;
+      }
+      else if(myWeapon instanceof SniperRifle)
+      {
+        PVector aimVector = new PVector(mouseX - me.location.x, mouseY - me.location.y);
+        aimVector.setMag(bulletSpeed);
+        myObjects.add(new Bullet(aimVector,red,5, flyDistance, int(damage*me.damageMultiplier)));
+        shotTimer = 0;
+      }
+      else if(myWeapon instanceof Rocket)
+      {
+        PVector aimVector = new PVector(mouseX - me.location.x, mouseY - me.location.y);
+        aimVector.setMag(bulletSpeed);
+        myObjects.add(new Bullet(aimVector,red,50, flyDistance, int(damage*me.damageMultiplier)));
         shotTimer = 0;
       }
     }

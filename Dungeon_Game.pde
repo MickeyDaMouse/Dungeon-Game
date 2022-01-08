@@ -125,12 +125,12 @@ void setup()
     if(roomColor == green)
     {
       //weapons + potions
-      myObjects.add(new DroppedItem(width/2,height/2,rx,ry));
+      //myObjects.add(new DroppedItem(width/2,height/2,rx,ry));
     }
     if(roomColor == blue)
     {
       //mini bosses
-      
+      myObjects.add(new Miniboss(rx, ry));
     }
     if(roomColor == black)
     {

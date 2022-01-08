@@ -28,7 +28,7 @@ class Rocket extends Weapon
 {
   Rocket()
   {
-    
+    super(50, 1, 1000, 50);
   }
   
 }

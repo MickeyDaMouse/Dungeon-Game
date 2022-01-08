@@ -22,12 +22,12 @@ class Hero extends GameObject
     lives = 150;
     
     //character upgrades
-    xp = 100;
+    xp = 0;
     maxLives = 150;
     speedMultiplier = 1.0;
     damageMultiplier = 1.0;
     
-    myWeapon = new AutoRifle();
+    myWeapon = new Rocket();
     
     currentAction = manDOWN;
   }
