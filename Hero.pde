@@ -6,6 +6,8 @@ class Hero extends GameObject
   int xp;
   float speedMultiplier;
   float damageMultiplier;
+  boolean shield;
+  int shieldTimer;
    
   AnimatedGIF currentAction;
 
@@ -27,6 +29,8 @@ class Hero extends GameObject
     speedMultiplier = 1.0;
     damageMultiplier = 1.0;
     
+    shield = false;
+    
     myWeapon = new Rocket();
     
     currentAction = manDOWN;
@@ -40,6 +44,11 @@ class Hero extends GameObject
     //noStroke();
     //circle(location.x, location.y, size*2);
     
+    if(shield)
+    {
+      fill(blue);
+      circle(location.x, location.y, size*2);
+    }
     
     currentAction.show(location.x,location.y,size,size*2);
     
@@ -147,8 +156,13 @@ class Hero extends GameObject
       GameObject myObj = myObjects.get(i);
       if(myObj instanceof EnemyBullet && isCollidingWith(myObj))
       {
-        lives -= myObj.damage;
-        myObj.lives = 0;
+        if(shield == false)
+        {
+          lives -= myObj.damage;
+          shield  = true;
+          myObj.lives = 0;
+        }
+        
       }
       if(myObj instanceof DroppedItem && isCollidingWith(myObj))
       {
@@ -162,6 +176,16 @@ class Hero extends GameObject
       }
       
       i++;
+    }
+    
+    if(shield)
+    {
+      shieldTimer ++;
+      if(shieldTimer == 120)
+      {
+        shield = false;
+        shieldTimer = 0;
+      }
     }
   }
 }

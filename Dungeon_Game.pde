@@ -106,10 +106,12 @@ void setup()
     if(roomColor == red)
     {
       //basic enemy
-      for(int i=0; i<rx+ry; i++)
-      {
-        myObjects.add(new Follower(rx,ry));
-      }
+      //for(int i=0; i<rx+ry; i++)
+      //{
+      //  myObjects.add(new Follower(rx,ry));
+      //}
+      
+      myObjects.add(new Miniboss(rx, ry));
       
       
     }

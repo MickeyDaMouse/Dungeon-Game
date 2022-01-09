@@ -27,9 +27,10 @@ class Follower extends Enemy
     velocity = new PVector(me.location.x - location.x, me.location.y-location.y);
     velocity.setMag(3);
     
-    if(dist(location.x,location.y,me.location.x,me.location.y) < size + me.size)
+    if(dist(location.x,location.y,me.location.x,me.location.y) < size + me.size && me.shield == false)
     {
       me.lives -= 15;
+      me.shield = true;
       lives = 0;
     }
   }
