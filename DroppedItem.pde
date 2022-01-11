@@ -2,21 +2,37 @@ class DroppedItem extends GameObject
 {
   int type;
   Weapon w;
+  int heal;
   
-  DroppedItem(float x, float  y, int rx, int ry)
+  
+  DroppedItem(float x, float  y, int rx, int ry, Weapon gun)
   {
     type = GUN;
-    if(rx == 1 && ry == 1)
-      w = new AutoRifle();
-    else
-      w = new SniperRifle();
+    heal = 0;
+    
+    w = gun;
+
     lives = 1;
     location = new PVector(x,y);
     velocity = new PVector(0,0);
-    size = 10;
+    size = 50;
     roomX = rx;
     roomY = ry;
     
+  }
+  
+  DroppedItem(float x, float y, int rx, int ry, int h)
+  {
+    type = HEALING;
+    w = myWeapon;
+    heal = h;
+    
+    lives = 1;
+    location = new PVector(x,y);
+    velocity = new PVector(0,0);
+    size = 20;
+    roomX = rx;
+    roomY = ry;
   }
   
   void show()

@@ -43,6 +43,9 @@ int mapx,mapy;
 //hero
 Hero me;
 
+//boss
+Enemy boss;
+
 //game objects
 ArrayList<GameObject> myObjects;
 
@@ -97,6 +100,9 @@ void setup()
   //myObjects.add(new Follower(1,2));
   //myObjects.add(new Follower(2,1));
   
+  boss = new Boss(8,8);
+  myObjects.add(boss);
+  
   //loading  enemies
   rx = 0;
   ry = 0;
@@ -106,13 +112,13 @@ void setup()
     if(roomColor == red)
     {
       //basic enemy
-      //for(int i=0; i<rx+ry; i++)
-      //{
-      //  myObjects.add(new Follower(rx,ry));
-      //}
+      for(int i=0; i<rx+ry; i++)
+      {
+        myObjects.add(new Follower(rx,ry));
+      }
       
-      myObjects.add(new Miniboss(rx, ry));
-      
+      //myObjects.add(new Miniboss(rx, ry));
+      //myObjects.add(new Boss(rx, ry));
       
     }
     if(roomColor == yellow)
@@ -127,7 +133,17 @@ void setup()
     if(roomColor == green)
     {
       //weapons + potions
-      //myObjects.add(new DroppedItem(width/2,height/2,rx,ry));
+      if(rx == 1 && ry == 1)
+        myObjects.add(new DroppedItem(width/2,height/2,rx,ry, new AutoRifle()));
+      else
+      {
+        float chance = random(0,100);
+        if(chance >= 50)
+          myObjects.add(new DroppedItem(width/2,height/2,rx,ry, new SniperRifle()));
+        else
+          myObjects.add(new DroppedItem(width/2,height/2,rx,ry, new ShotGun()));
+        print(chance + "    ");
+      }
     }
     if(roomColor == blue)
     {
@@ -136,8 +152,7 @@ void setup()
     }
     if(roomColor == black)
     {
-      //bosses
-      
+      //space
     }
     
     rx++;
@@ -147,8 +162,8 @@ void setup()
       ry++;
       
     }
-    
   }
+  
   
   //test
   //darkness.add(new Darkness(me.location.x,me.location.y,100));

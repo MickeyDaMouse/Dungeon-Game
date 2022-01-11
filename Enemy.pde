@@ -46,20 +46,54 @@ class Enemy  extends GameObject
       GameObject obj = myObjects.get(i);
       if(obj instanceof Bullet)
       {
+        
         if(isCollidingWith(obj))
         {
+          if(myWeapon instanceof Rocket)
+          {
+            background(red);
+            int j=0;
+            while(j<myObjects.size())
+            {
+              GameObject o = myObjects.get(j);
+              if(o instanceof Enemy && o.roomX == me.roomX && o.roomY == me.roomY)
+              {
+                o.lives -= 15*me.damageMultiplier;
+              }
+              j++;
+            }
+          }
+          
           lives = lives - obj.damage;
           obj.lives = 0;
           if(lives <= 0)
           {
-            myObjects.add(new Message(location, "+" + xp, roomX, roomY));
-            me.xp += xp;
+            if(boss.lives <= 0)
+            {
+              mode = GAMEOVER;
+            }
+            
+            float chance = random(0,100);
+            if(chance <=10)
+            {
+              myObjects.add(new DroppedItem(location.x, location.y, roomX, roomY, 20));
+            }
+            
           }
+          
+         
         }
       }
       
       i++;
     }
+    
+    if(lives <= 0)
+    {
+      myObjects.add(new Message(location, "+" + xp, roomX, roomY));
+      me.xp += xp;
+    }
+    
     
   }
   

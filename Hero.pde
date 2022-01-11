@@ -128,25 +128,25 @@ class Hero extends GameObject
     if (northRoom != #FFFFFF && location.y <= 100+size && location.x >= width/2-50 && location.x <= width/2+50)
     {
       roomY--;
-      location = new PVector(width/2, height-(110+size));
+      location = new PVector(width/2, height-(101+size));
     }
     //east/right
     if (eastRoom != #FFFFFF && location.x >= width-(100+size) && location.y  >= height/2-50 && location.y <= height/2+50)
     {
       roomX++;
-      location = new PVector(110+size, height/2);
+      location = new PVector(101+size, height/2);
     }
     //south/down
     if (southRoom != #FFFFFF && location.y >= height-(100+size) && location.x  >= width/2-50 && location.x <= width/2+50)
     {
       roomY++;
-      location = new PVector(width/2, 110+size);
+      location = new PVector(width/2, 101+size);
     }
     //west/left
     if (westRoom != #FFFFFF && location.x <= 100+size && location.y  >= height/2-50 && location.y <= height/2+50)
     {
       roomX--;
-      location = new PVector(width-(110+size), height/2);
+      location = new PVector(width-(101+size), height/2);
     }
     
     //checking collisions
@@ -172,6 +172,13 @@ class Hero extends GameObject
           myWeapon = item.w;
           item.lives = 0;
         }
+        if(item.type == HEALING)
+        {
+          lives += item.heal;
+          if(lives >= maxLives)
+            lives = maxLives;
+          item.lives = 0;
+        }
         
       }
       
@@ -187,5 +194,11 @@ class Hero extends GameObject
         shieldTimer = 0;
       }
     }
+    
+    if(me.lives <= 0)
+    {
+      mode = GAMEOVER;
+    }
+    
   }
 }
