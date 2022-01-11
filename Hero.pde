@@ -24,7 +24,7 @@ class Hero extends GameObject
     lives = 150;
     
     //character upgrades
-    xp = 0;
+    xp = 1110;
     maxLives = 150;
     speedMultiplier = 1.0;
     damageMultiplier = 1.0;
@@ -46,7 +46,8 @@ class Hero extends GameObject
     
     if(shield)
     {
-      fill(blue);
+      fill(shieldColor);
+      strokeWeight(0);
       circle(location.x, location.y, size*2);
     }
     

@@ -39,9 +39,17 @@ class DroppedItem extends GameObject
   {
     if(roomX == me.roomX && roomY == me.roomY)
     {
-      fill(green);
-      strokeWeight(0);
-      circle(location.x, location.y, size*2);
+      if(type == GUN)
+      {
+        
+      }
+      else if(type == HEALING)
+      {
+        healing.show(location.x, location.y, size*2, size*2);
+      }
+      //fill(green);
+      //strokeWeight(0);
+      //circle(location.x, location.y, size*2);
     }
     
   }

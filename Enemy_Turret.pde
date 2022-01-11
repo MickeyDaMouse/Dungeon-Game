@@ -33,7 +33,7 @@ class Turret extends Enemy
     if(shotTimer >= 180)
     {
       PVector aimVector = new PVector(me.location.x  - location.x, me.location.y - location.y);
-      aimVector.setMag(8);
+      aimVector.setMag(2);
       myObjects.add(new EnemyBullet(location,aimVector,blue,20, 15));
  
       shotTimer = 0;

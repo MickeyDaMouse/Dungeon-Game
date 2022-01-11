@@ -15,20 +15,16 @@ class Miniboss extends Enemy
   void show()
   {
     if(shield)
-      fill(blue);
-    else
-      fill(pink);
-      
-    if(lives > 250)
     {
-      
+      fill(shieldColor);
+      circle(location.x, location.y, size*2);
     }
-    else
-    {
+    
+    ghost.show(location.x,location.y, size*2+30, size*2+30);
+      //fill(pink);
       
-    }
-    strokeWeight(0);
-    circle(location.x, location.y, size*2);
+    //strokeWeight(0);
+    //circle(location.x, location.y, size*2);
     fill(black); 
     textSize(20);
     text(lives,location.x,location.y);

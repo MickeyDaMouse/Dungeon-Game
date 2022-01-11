@@ -24,6 +24,7 @@ color magenta = #FF00FF;
 color white = #FFFFFF;
 color black = #000000;
 color pink = #FFC0CB;
+color shieldColor = #99FFFF;
 
 //movements
 boolean up, down, left, right, space;
@@ -34,6 +35,11 @@ AnimatedGIF manUP;
 AnimatedGIF manDOWN;
 AnimatedGIF manLEFT;
 AnimatedGIF manRIGHT;
+
+AnimatedGIF ghost;
+AnimatedGIF healing;
+AnimatedGIF normalBoss;
+AnimatedGIF rageBoss;
 
 //images
 PImage map;
@@ -81,6 +87,11 @@ void setup()
   manDOWN = new AnimatedGIF(4,10,"down_",".png");
   manLEFT = new AnimatedGIF(4,10,"left_",".png");
   manRIGHT = new AnimatedGIF(4,10,"right_",".png");
+  
+  ghost = new AnimatedGIF(6, 10, "ghost_", ".gif");
+  healing = new AnimatedGIF(4, 10, "helth_", ".png");
+  normalBoss = new AnimatedGIF(9, 10, "boss_normal_", ".gif");
+  rageBoss = new AnimatedGIF(9, 10, "boss_rage_", ".gif");
   
   //buttons
   introButton = new Button(magenta,white,width/2,700,150,100,"Start",10,60);
@@ -142,7 +153,8 @@ void setup()
           myObjects.add(new DroppedItem(width/2,height/2,rx,ry, new SniperRifle()));
         else
           myObjects.add(new DroppedItem(width/2,height/2,rx,ry, new ShotGun()));
-        print(chance + "    ");
+          
+        //print(chance + "    ");
       }
     }
     if(roomColor == blue)
