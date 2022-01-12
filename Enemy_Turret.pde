@@ -6,19 +6,20 @@ class Turret extends Enemy
   
   Turret(int x, int y, int locx, int locy)
   {
-    super(100,30,x,y, locx, locy);
+    super(100,40,x,y, locx, locy);
     shotTimer = 0;
     
-    xp = 1;
+    xp = 2;
   }
   
   void show()
   {
     if( roomX == me.roomX && roomY == me.roomY)
     {
-      fill(blue);
-      strokeWeight(0);
+      //fill(blue);
+      //strokeWeight(0);
       circle(location.x,location.y,size*2);
+      image(turret, location.x, location.y, size*4/2, size*5/2);
       fill(black);
       textSize(10);
       text(lives,location.x,location.y);
@@ -33,7 +34,7 @@ class Turret extends Enemy
     if(shotTimer >= 180)
     {
       PVector aimVector = new PVector(me.location.x  - location.x, me.location.y - location.y);
-      aimVector.setMag(2);
+      aimVector.setMag(8);
       myObjects.add(new EnemyBullet(location,aimVector,blue,20, 15));
  
       shotTimer = 0;

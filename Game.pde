@@ -61,6 +61,20 @@ void drawGameObjects()
     }
     if (myObj.lives <= 0)
     {
+      if(myObj instanceof Enemy)
+      {
+        float chance = random(0,100);
+        if(chance <=10)
+        {
+          myObjects.add(new DroppedItem(myObj.location.x, myObj.location.y, myObj.roomX, myObj.roomY, 20));
+        }
+        if(myObj instanceof Miniboss)   
+        {
+          chance = random(0,100);
+          if(chance <= 30)
+            myObjects.add(new DroppedItem(myObj.location.x, myObj.location.y, myObj.roomX, myObj.roomY, new Rocket()));
+        }
+      }
       myObjects.remove(i);
     } else {
       i++;

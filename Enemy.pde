@@ -51,7 +51,7 @@ class Enemy  extends GameObject
         {
           if(myWeapon instanceof Rocket)
           {
-            background(red);
+            image(explode, width/2, height/2, width, height);
             int j=0;
             while(j<myObjects.size())
             {
@@ -71,12 +71,6 @@ class Enemy  extends GameObject
             if(boss.lives <= 0)
             {
               mode = GAMEOVER;
-            }
-            
-            float chance = random(0,100);
-            if(chance <=10)
-            {
-              myObjects.add(new DroppedItem(location.x, location.y, roomX, roomY, 20));
             }
             
           }

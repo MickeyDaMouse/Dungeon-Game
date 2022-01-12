@@ -46,6 +46,14 @@ PImage map;
 color northRoom, eastRoom, southRoom, westRoom;
 int mapx,mapy;
 
+PImage follower;
+PImage turret;
+PImage sniper;
+PImage shotgun;
+PImage rocket;
+
+PImage explode;
+
 //hero
 Hero me;
 
@@ -80,6 +88,7 @@ void setup()
   size(900,900);
   mode = INTRO;
   rectMode(CENTER);
+  imageMode(CENTER);
   
   //loading  gifs
   introGif = new AnimatedGIF(56,"frame_","_delay-0.06s.gif");
@@ -101,7 +110,15 @@ void setup()
   speedButton = new Button(blue,yellow,width/2-250,height/2,40,40,"+",4,50);
   damageButton = new Button(red,yellow,width/2-250,height/2+150,40,40,"+",4,50);
   
+  //locading images
   map = loadImage("map.png");
+  follower = loadImage("Follower.jpeg");
+  turret = loadImage("Turret.jpeg");
+  sniper = loadImage("Sniper.jpeg");
+  shotgun = loadImage("Shotgun.jpeg");
+  rocket = loadImage("Rocket.jpg");
+  
+  explode = loadImage("Explode.jpeg");
   
   myObjects = new ArrayList<GameObject>();
   

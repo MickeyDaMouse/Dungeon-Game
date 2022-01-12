@@ -40,7 +40,7 @@ class AnimatedGIF
   //behaviour functions
   void show()
   {
-    image(images[currentFrame],0,0,width,height);
+    image(images[currentFrame],width/2,height/2,width,height);
     currentFrame++;
     if(currentFrame == numFrames)  currentFrame = 0;
   }

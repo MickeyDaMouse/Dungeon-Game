@@ -41,7 +41,18 @@ class DroppedItem extends GameObject
     {
       if(type == GUN)
       {
-        
+        if(w instanceof SniperRifle)
+        {
+          image(sniper, location.x, location.y, size*4, size*2);
+        }
+        else if(w instanceof ShotGun)
+        {
+          image(shotgun, location.x, location.y, size*5, size*2);
+        }
+        else if(w instanceof Rocket)
+        {
+          image(rocket, location.x, location.y, size*6, size*2);
+        }
       }
       else if(type == HEALING)
       {

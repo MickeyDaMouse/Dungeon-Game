@@ -10,9 +10,10 @@ class Follower extends Enemy
   {
     if( roomX == me.roomX && roomY == me.roomY)
     {
-      fill(yellow);
-      strokeWeight(0);
-      circle(location.x,location.y,size*2);
+      //fill(yellow);
+      //strokeWeight(0);
+      //circle(location.x,location.y,size*2);
+      image(follower, location.x, location.y, size*2, size*2);
       fill(black);
       textSize(10);
       text(lives,location.x,location.y);
