@@ -41,6 +41,8 @@ AnimatedGIF healing;
 AnimatedGIF normalBoss;
 AnimatedGIF rageBoss;
 
+AnimatedGIF win;
+
 //images
 PImage map;
 color northRoom, eastRoom, southRoom, westRoom;
@@ -101,6 +103,8 @@ void setup()
   healing = new AnimatedGIF(4, 10, "helth_", ".png");
   normalBoss = new AnimatedGIF(9, 10, "boss_normal_", ".gif");
   rageBoss = new AnimatedGIF(9, 10, "boss_rage_", ".gif");
+  
+  win = new AnimatedGIF(20,10, "frame_", "_delay-0.05s.gif");
   
   //buttons
   introButton = new Button(magenta,white,width/2,700,150,100,"Start",10,60);

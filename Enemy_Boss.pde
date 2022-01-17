@@ -178,28 +178,28 @@ class Boss extends Enemy
       {
         PVector aimVector = new PVector(width/2 - width/2, 0 - height/2);
         aimVector.setMag(4);
-        myObjects.add(new EnemyBullet(location, aimVector, green, 30, 40));
+        myObjects.add(new EnemyBullet(location, aimVector, red, 30, 40));
         aimVector = new PVector(width - width/2, 0 - height/2);
         aimVector.setMag(4);
-        myObjects.add(new EnemyBullet(location, aimVector, green, 30, 40));
+        myObjects.add(new EnemyBullet(location, aimVector, red, 30, 40));
         aimVector = new PVector(width - width/2, height/2 - height/2);
         aimVector.setMag(4);
-        myObjects.add(new EnemyBullet(location, aimVector, green, 30, 40));
+        myObjects.add(new EnemyBullet(location, aimVector, red, 30, 40));
         aimVector = new PVector(width - width/2, height - height/2);
         aimVector.setMag(4);
-        myObjects.add(new EnemyBullet(location, aimVector, green, 30, 40));
+        myObjects.add(new EnemyBullet(location, aimVector, red, 30, 40));
         aimVector = new PVector(width/2 - width/2, height - height/2);
         aimVector.setMag(4);
-        myObjects.add(new EnemyBullet(location, aimVector, green, 30, 40));
+        myObjects.add(new EnemyBullet(location, aimVector, red, 30, 40));
         aimVector = new PVector(0 - width/2, height - height/2);
         aimVector.setMag(4);
-        myObjects.add(new EnemyBullet(location, aimVector, green, 30, 40));
+        myObjects.add(new EnemyBullet(location, aimVector, red, 30, 40));
         aimVector = new PVector(0 - width/2, height/2 - height/2);
         aimVector.setMag(4);
-        myObjects.add(new EnemyBullet(location, aimVector, green, 30, 40));
+        myObjects.add(new EnemyBullet(location, aimVector, red, 30, 40));
         aimVector = new PVector(0 - width/2, 0 - height/2);
         aimVector.setMag(4);
-        myObjects.add(new EnemyBullet(location, aimVector, green, 30, 40));
+        myObjects.add(new EnemyBullet(location, aimVector, red, 30, 40));
         
         abilityTimer = 0;
       }

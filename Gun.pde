@@ -11,7 +11,7 @@ class AutoRifle extends Weapon
 {
   AutoRifle()
   {
-    super(10,5,100,5);
+    super(10,5,80,5);
   }
   
 }

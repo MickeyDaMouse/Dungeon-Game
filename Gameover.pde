@@ -13,9 +13,10 @@ void gameover()
   }
   else
   {
-    background(green);
+    //background(green);
+    win.show();
     textSize(100);
-    fill(black);
+    fill(green);
     text("Congradulations!", width/2, height/2-150);
     text("You WON!!", width/2, height/2);
     textSize(40);
